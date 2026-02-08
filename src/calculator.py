@@ -5,10 +5,35 @@ def main(page: ft.Page):
     page.title = "Calculator"
     result = ft.Text(value="0", color=ft.Colors.WHITE, size=20)
 
+    #This is a general format for all the buttons
+    @ft.control
+    class CalculatorButton(ft.Button):
+        expand: int = 1
+
+
+    @ft.control
+    class DigitalButton(CalculatorButton):
+      color: ft.Colors = ft.Colors.BLACK
+      bgcolor: ft.Colors = ft.Colors.WHITE
+
+
+    @ft.control
+    class ActionButton(CalculatorButton):
+        color: ft.Colors = ft.Colors.BLACK
+        bgcolor: ft.Colors = ft.Colors.WHITE_10
+
+    @ft.control
+    class ACButton(CalculatorButton):
+       color: ft.Colors = ft.Colors.BLACK
+       bgcolor: ft.Colors = ft.Colors.RED
+
+
+
+
     page.add(
         ft.Container(
             width=350,
-            bgcolor=ft.Colors.BLACK,
+            bgcolor=ft.Colors.BLUE_GREY,
             border_radius=ft.BorderRadius.all(20),
             padding=20,
             content=ft.Column(
