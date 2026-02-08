@@ -20,7 +20,7 @@ def main(page: ft.Page):
     @ft.control
     class ActionButton(CalculatorButton):
         color: ft.Colors = ft.Colors.BLACK
-        bgcolor: ft.Colors = ft.Colors.WHITE_10
+        bgcolor: ft.Colors = ft.Colors.GREY
 
     @ft.control
     class ACButton(CalculatorButton):
@@ -37,34 +37,36 @@ def main(page: ft.Page):
             border_radius=ft.BorderRadius.all(20),
             padding=20,
             content=ft.Column(
-                controls =[ft.Row(controls=[result]),
-                           ft.Row(controls=[ft.Button("AC"),
-                                            ft.Button("+/-"),
-                                            ft.Button("%"),
-                                            ft.Button("/"),
+                controls =[ft.Row(controls=[result],
+                                  alignment=ft.MainAxisAlignment.END),
+
+                           ft.Row(controls=[ACButton(content="AC"),
+                                            ActionButton(content="+/-"),
+                                            ActionButton(content="%"),
+                                            ActionButton(content="/"),
                                             ]
                                   ),
-                           ft.Row(controls=[ft.Button("7"),
-                                            ft.Button("8"),
-                                            ft.Button("9"),
-                                            ft.Button("*"),
+                           ft.Row(controls=[DigitalButton(content="7"),
+                                            DigitalButton(content="8"),
+                                            DigitalButton(content="9"),
+                                            ActionButton(content="*"),
                                             ]
                                   ),
-                           ft.Row(controls=[ft.Button("4"),
-                                            ft.Button("5"),
-                                            ft.Button("6"),
-                                            ft.Button("-"),
+                           ft.Row(controls=[DigitalButton(content="4"),
+                                            DigitalButton(content="5"),
+                                            DigitalButton(content="6"),
+                                            ActionButton(content="-"),
                                             ]
                                   ),
-                           ft.Row(controls=[ft.Button("1"),
-                                            ft.Button("2"),
-                                            ft.Button("3"),
-                                            ft.Button("+"),
+                           ft.Row(controls=[DigitalButton(content="1"),
+                                            DigitalButton(content="2"),
+                                            DigitalButton(content="3"),
+                                            ActionButton(content="+"),
                                             ]
                                   ),
-                           ft.Row(controls=[ft.Button("0"),
-                                            ft.Button("."),
-                                            ft.Button("="),
+                           ft.Row(controls=[DigitalButton(content="0", expand=2),
+                                            DigitalButton(content="."),
+                                            ActionButton(content="="),
                                             ]
                                   ),],
             )
