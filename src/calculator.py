@@ -151,9 +151,16 @@ class Caclulator(ft.Container):
 def main(page: ft.Page):
     page.title = "Calculator"
 
-    calculator = Caclulator()
+    page.window.height = 345
+    page.window.width = 385
 
-    page.add(calculator)
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.window.resizable = False
+
+    page.update()
+
+    page.add(Caclulator())
 
 
 if __name__ == "__main__":
