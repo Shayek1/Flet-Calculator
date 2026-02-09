@@ -91,15 +91,9 @@ class Caclulator(ft.Container):
                self.result.value = self.result.value + info
 
         elif info in ("+", "-", "*", "/"):
-               self.result.value = self.calculate(
-               self.operand1, info(self.result.value), self.operator
-        )
-               self.operator = info
-               if self.result.value == "Error":
-                  self.operand1 = "0"
-               else:
-                    self.operand1 = info(self.result.value)
-               self.new_operand = True
+             self.operand1 = float(self.result.value)
+             self.operator = info
+             self.new_operand = True
 
         elif info in ("="):
             self.result.value = self.calculate(
