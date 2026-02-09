@@ -74,13 +74,13 @@ def clicked(self, e):
     self.update()
 
     #formatting the value into a num if the value equals to an integer
-    def format_number(self, num):
+def format_number(self, num):
         if num % 1 == 0:
             return int(num)
         else:
             return num
 
-    def calculate(self, operand1, operand2, operator):
+def calculate(self, operand1, operand2, operator):
         if operator == "+":
             return self.format_number(operand1 + operand2)
 
@@ -96,7 +96,7 @@ def clicked(self, e):
             else:
                 return self.format_number(operand1 / operand2)
 
-    def reset(self):
+def reset(self):
         self.operator = "+"
         self.operand1 = 0
         self.new_operand = True
@@ -117,7 +117,7 @@ class Caclulator(ft.Container):
                     controls=[self.result],
                     alignment=ft.MainAxisAlignment.END
                 ),
-                           ft.Row(controls=[ACButton(content="AC"),
+                           ft.Row(controls=[ACButton(content="AC", on_click=self.clicked),
                                             ActionButton(content="+/-"),
                                             ActionButton(content="%"),
                                             ActionButton(content="/"),
